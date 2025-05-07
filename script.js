@@ -286,13 +286,13 @@ function updateOutputText(event) {
     if (nickName.value) {
       let letters = /^[0-9a-zA-Z_]+$/;
       if (!nickName.value.match(letters)) nickName.value = nickName.value.replace(event.data, '');
-      if (!nickName.value.match(letters)) nickName.value = 'HolyWorld';
+      if (!nickName.value.match(letters)) nickName.value = 'TidePvP';
     }
   }
 
   let newNick = nickName.value
   if (!newNick) {
-    newNick = 'HolyWorld'
+    newNick = 'TidePvP'
   }
 
   const bold = document.getElementById('bold').checked;
