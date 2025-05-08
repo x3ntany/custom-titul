@@ -115,6 +115,7 @@ const formats = {
     darkMode();
 
     toggle.addEventListener("change", darkMode);
+  });
 }
 
 /* Get a random HEX color */
