@@ -64,42 +64,54 @@ const formats = {
   },
 };
 
+document.addEventListener('DOMContentLoaded', (event) => {
+  if (Cookies.get('darkmode') === 'true') {
+    enableDarkMode();
+    document.getElementById('darkmode').checked = true;
+  }
+});
+
+function enableDarkMode() {
+  document.body.classList.add('dark');
+  document.getElementById('output-format').classList.add("dark");
+  document.getElementById('color-preset').classList.add("dark");
+  document.getElementById('numOfColors').classList.add("dark");
+  document.getElementById('graylabel1').classList.replace("gray", "darkgray");
+  document.getElementById('graylabel2').classList.replace("gray", "darkgray");
+  document.getElementById('outputText').classList.replace("gray", "darkgray");
+  document.getElementById('error').classList.replace("errortext", "darkerrortext");
+  document.getElementById('numOfColors').classList.add("darktextboxes");
+  document.getElementById('nickname').classList.add("darktextboxes");
+  document.getElementById('outputText').classList.add("darktextboxes");
+  Array.from(document.getElementsByClassName("hexColor")).forEach(e => {
+    document.getElementById(e.id).classList.add("darktextboxes");
+  });
+}
+
+function disableDarkMode() {
+  document.body.classList.remove('dark');
+  document.getElementById('output-format').classList.remove("dark");
+  document.getElementById('color-preset').classList.remove("dark");
+  document.getElementById('numOfColors').classList.remove("dark");
+  document.getElementById('graylabel1').classList.replace("darkgray", "gray");
+  document.getElementById('graylabel2').classList.replace("darkgray", "gray");
+  document.getElementById('outputText').classList.replace("darkgray", "gray");
+  document.getElementById('error').classList.replace("darkerrortext", "errortext");
+  document.getElementById('numOfColors').classList.remove("darktextboxes");
+  document.getElementById('nickname').classList.remove("darktextboxes");
+  document.getElementById('outputText').classList.remove("darktextboxes");
+  Array.from(document.getElementsByClassName("hexColor")).forEach(e => {
+    document.getElementById(e.id).classList.remove("darktextboxes");
+  });
+}
+
 function darkMode() {
-  if (document.getElementById('darkmode').checked == true) {
-    document.body.classList.add('dark');
-    document.getElementById('output-format').classList.add("dark");
-    document.getElementById('color-preset').classList.add("dark");
-    document.getElementById('numOfColors').classList.add("dark");
-    document.getElementById('graylabel1').classList.replace("gray", "darkgray");
-    document.getElementById('graylabel2').classList.replace("gray", "darkgray");
-    document.getElementById('outputText').classList.replace("gray", "darkgray");
-    document.getElementById('outputText').classList.replace("gray", "darkgray");
-    document.getElementById('error').classList.replace("errortext", "darkerrortext");
-    document.getElementById('numOfColors').classList.add("darktextboxes");
-    document.getElementById('nickname').classList.add("darktextboxes");
-    document.getElementById('outputText').classList.add("darktextboxes");
-    Array.from(document.getElementsByClassName("hexColor")).forEach(e => {
-      document.getElementById(e.id).classList.add("darktextboxes");
-    })
-	
-	Cookies.set("darkmode", true, { expires: 30, path: '' })
+  if (document.getElementById('darkmode').checked) {
+    enableDarkMode();
+    Cookies.set("darkmode", true, { expires: 30, path: '' });
   } else {
-    document.body.classList.remove('dark');
-    document.getElementById('output-format').classList.remove("dark");
-    document.getElementById('color-preset').classList.remove("dark");
-    document.getElementById('numOfColors').classList.remove("dark");
-    document.getElementById('graylabel1').classList.replace("darkgray", "gray");
-    document.getElementById('graylabel2').classList.replace("darkgray", "gray");
-    document.getElementById('outputText').classList.replace("darkgray", "gray");
-    document.getElementById('error').classList.replace("darkerrortext", "errortext");
-    document.getElementById('numOfColors').classList.remove("darktextboxes");
-    document.getElementById('nickname').classList.remove("darktextboxes");
-    document.getElementById('outputText').classList.remove("darktextboxes");
-    Array.from(document.getElementsByClassName("hexColor")).forEach(e => {
-      document.getElementById(e.id).classList.remove("darktextboxes");
-    })
-	
-	Cookies.remove("darkmode")
+    disableDarkMode();
+    Cookies.remove("darkmode");
   }
 }
 
