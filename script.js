@@ -65,10 +65,7 @@ const formats = {
 };
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  if (Cookies.get('darkmode') === 'true') {
     enableDarkMode();
-    document.getElementById('darkmode').checked = true;
-  }
 });
 
 function enableDarkMode() {
