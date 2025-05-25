@@ -4,7 +4,7 @@ const coloredNick = document.getElementById('coloredNick');
 const savedColors = ['B615F8', 'E108FB', 'B615F8', getRandomHexColor(), getRandomHexColor(), getRandomHexColor(), getRandomHexColor(), getRandomHexColor(), getRandomHexColor(), getRandomHexColor()];
 const presets = {
   1: {
-    colors: ["FF0000", "FF7F00", "FFFF00", "00FF00", "0000FF", "4B0082", "9400D3"],
+    colors: ["CC0000", "CC6600", "CCCC00", "00CC00", "0000CC", "3A0066", "7500A8"],
   }
 }
 const formats = {
