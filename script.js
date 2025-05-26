@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function enableDarkMode() {
   document.body.classList.add('dark');
-  document.getElementById('output-format').classList.add("dark");
   document.getElementById('color-preset').classList.add("dark");
   document.getElementById('numOfColors').classList.add("dark");
   document.getElementById('graylabel1').classList.replace("gray", "darkgray");
@@ -87,7 +86,6 @@ function enableDarkMode() {
 
 function disableDarkMode() {
   document.body.classList.remove('dark');
-  document.getElementById('output-format').classList.remove("dark");
   document.getElementById('color-preset').classList.remove("dark");
   document.getElementById('numOfColors').classList.remove("dark");
   document.getElementById('graylabel1').classList.replace("darkgray", "gray");
@@ -288,7 +286,7 @@ function getColors() {
 }
 
 function updateOutputText(event) {
-  let format = formats[document.getElementById('output-format').value];
+  let format = formats[2];
   if (format.outputPrefix) {
     nickName.value = nickName.value.replace(/ /g, '');
     if (nickName.value) {
