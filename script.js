@@ -286,7 +286,7 @@ function getColors() {
 }
 
 function updateOutputText(event) {
-  let format = formats[2];
+  let format = formats[document.getElementById('output-format').value];
   if (format.outputPrefix) {
     nickName.value = nickName.value.replace(/ /g, '');
     if (nickName.value) {
@@ -338,7 +338,7 @@ function updateOutputText(event) {
   outputText.innerText = output;
 
   if(16 < newNick.length) {
-	showError(true, 'Текст превышает 16 символов и ваш титул может быть обрезан.');
+    showError(true, 'Текст превышает 16 символов и ваш титул может быть обрезан.');
   } else {
     showError(format.maxLength != null && format.maxLength < output.length);
   }
