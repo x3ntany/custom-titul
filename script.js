@@ -311,7 +311,7 @@ function updateOutputText(event) {
   let outputText = document.getElementById('outputText');
   let gradient = new Gradient(getColors(), newNick.replace(/ /g, '').length);
   let charColors = [];
-  let output = 2;
+  let output = format.outputPrefix;
   for (let i = 0; i < newNick.length; i++) {
     let char = newNick.charAt(i);
     if (char == ' ') {
