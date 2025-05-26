@@ -286,7 +286,7 @@ function getColors() {
 }
 
 function updateOutputText(event) {
-  let format = formats[document.getElementById('output-format').value];
+  let format = formats[2];
   if (format.outputPrefix) {
     nickName.value = nickName.value.replace(/ /g, '');
     if (nickName.value) {
