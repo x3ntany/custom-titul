@@ -387,7 +387,7 @@ function displayColoredName(nickName, colors) {
 }
 
 function preset(n) {
-  const colors = presets[n].colors
+  const colors = presets[n]
   const container = $('#hexColors');
   container.empty();
     // Need to add some colors
