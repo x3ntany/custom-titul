@@ -288,20 +288,19 @@ function getColors() {
 }
 
 function updateOutputText(event) {
-  let titleMode = document.getElementById('titlemode').checked;
   let format = formats[document.getElementById('output-format').value];
   if (format.outputPrefix) {
     nickName.value = nickName.value.replace(/ /g, '');
     if (nickName.value) {
       let letters = /^[0-9a-zA-Z_]+$/;
       if (!nickName.value.match(letters)) nickName.value = nickName.value.replace(event.data, '');
-      if (!nickName.value.match(letters)) nickName.value = 'TidePvP';
+      if (!nickName.value.match(letters)) nickName.value = 'NullX';
     }
   }
 
   let newNick = nickName.value
   if (!newNick) {
-    newNick = 'TidePvP'
+    newNick = 'NullX'
   }
 
   const bold = document.getElementById('bold').checked;
@@ -312,7 +311,7 @@ function updateOutputText(event) {
   let outputText = document.getElementById('outputText');
   let gradient = new Gradient(getColors(), newNick.replace(/ /g, '').length);
   let charColors = [];
-  let output = format.outputPrefix;
+  let output = 2;
   for (let i = 0; i < newNick.length; i++) {
     let char = newNick.charAt(i);
     if (char == ' ') {
@@ -339,12 +338,11 @@ function updateOutputText(event) {
   }
 
   outputText.innerText = output;
-  if(titleMode) {
-	  if(16 < newNick.length) {
-		showError(true, 'Текст превышает 16 символов и ваш титул может быть обрезан.');
-	  } else {
-	    showError(format.maxLength != null && format.maxLength < output.length);
-	  }
+
+  if(16 < newNick.length) {
+	showError(true, 'Текст превышает 16 символов и ваш титул может быть обрезан.');
+  } else {
+    showError(format.maxLength != null && format.maxLength < output.length);
   }
   
   displayColoredName(newNick, charColors);
@@ -404,13 +402,6 @@ function preset(n) {
 }
 
 function switchTitleMode() {
-	if(document.getElementById('titlemode').checked) {
-		document.getElementById('output-format').value = '2';
-		document.getElementById('output-format').disabled = true;
-	} else {
-		document.getElementById('output-format').disabled = false;
-	}
-	
 	updateOutputText();
 }
 
