@@ -406,8 +406,4 @@ function switchTitleMode() {
 toggleColors(2);
 updateOutputText();
 switchTitleMode();
-
-if(Cookies.get('darkmode')) {
-	document.getElementById('darkmode').checked = true
-	darkMode()
-}
+darkMode()
