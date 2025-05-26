@@ -101,13 +101,7 @@ function disableDarkMode() {
 }
 
 function darkMode() {
-  if (document.getElementById('darkmode').checked) {
-    enableDarkMode();
-    Cookies.set("darkmode", true, { expires: 30, path: '' });
-  } else {
-    disableDarkMode();
-    Cookies.remove("darkmode");
-  }
+  enableDarkMode();
 }
 
 /* Get a random HEX color */
