@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css?13">
     <link rel="shortcut icon" href="assets/images/NullX.png" type="image/x-icon">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript"  src="assets/js/js.cookie.js"></script>
+    <script type="text/javascript" src="assets/js/js.cookie.js"></script>
     <title>RGB градиент-генератор для NullX.su</title>
   </head>
 
   <body id="bg" class="container" style="font-family: Montserrat;">
-  
     <div id="hexColorTemplate" style="display:none;">
       <div class="row">
         <label for="color-$NUM">Цвет в формате HEX #$NUM</label>
-        <input class="form-control col-md-1 hexColor" id="color-$NUM" style="border-radius: 10px;" value="$VAL"
-               data-jscolor="{preset:'small dark', position:'right'}" oninput="javascript: updateOutputText(event)"
+        <input class="form-control col-md-1 hexColor" id="color-$NUM" style="border-radius: 10px;"
+               value="$VAL"
+               data-jscolor="{preset:'small dark', position:'right'}"
+               oninput="javascript: updateOutputText(event)"
                onchange="javascript: updateOutputText(event); Cookies.set(`#${$NUM}`, document.getElementById('color-$NUM').value, { expires: 7, path: '' })"/>
       </div>
     </div>
     
     <div id="content">
-	  <div class="header" style="display: flex;gap: 15px;">
-		  <img src="assets/images/NullX.png" alt="NullX.su" height="100" width="100">
-		  <div class="header-content">
-			  <h1 id="title">Создать титул для NullX.su</h1>
-			  <p id="graylabel1" class="gray" style="padding-bottom: 10px;">Для лучшего опыта используйте Google Chrome.</p>
-		  </div>
-	  </div>
+      <div class="header" style="display: flex;gap: 15px;">
+        <img src="assets/images/NullX.png" alt="NullX.su" height="100" width="100">
+        <div class="header-content">
+          <h1 id="title">Создать титул для NullX.su</h1>
+          <p id="graylabel1" class="gray" style="padding-bottom: 10px;">
+            Для лучшего опыта используйте Google Chrome.
+          </p>
+        </div>
+      </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-2" style="padding-left: 0;">
@@ -42,15 +45,17 @@
               <div class="row">
                 <div id="output">
                   <label id="label4" for="outputText">Результат</label>
-                  <label id="graylabel2" class="gray" for="outputText" style="font-weight: normal;">Скопируйте и вставьте это для текста с RGB-цветами!</label>
+                  <label id="graylabel2" class="gray" for="outputText" style="font-weight: normal;">
+                    Скопируйте и вставьте это для текста с RGB-цветами!
+                  </label>
                   <pre id="outputText" style="border-radius: 10px; white-space: pre-wrap; height: 70px; font-family: MinecraftRegular; margin-bottom: 5px;"></pre>
-				  <div class="output-bottom" style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 15px">
+                  <div class="output-bottom" style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 15px">
                     <button class="btn btn-info" onclick="window.location.href = 'https://custom.nullx.su'">Редактор кастомки</button>
-					<div class="error-bottom" style="width: 100%">
-						<p id="error" style="margin: 0"></p>
-					</div>
+                    <div class="error-bottom" style="width: 100%">
+                      <p id="error" style="margin: 0"></p>
+                    </div>
                     <button class="btn btn-primary" onclick="copyTextToClipboard(document.getElementById('outputText').textContent);">Скопировать</button>
-				  </div>
+                  </div>
                 </div>
               </div>
               <div class="row">
@@ -62,6 +67,13 @@
                   <input class="form-control" id="nickname" type="text" maxlength="100" placeholder="Ваш текст"
                          value="NullX.su" oninput="javascript: updateOutputText(event);"
                          onchange="javascript: updateOutputText(event)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3" style="padding-left: 0;">
+                  <label for="output-format">Формат вывода</label>
+                  <!-- Заменено на статичный текст -->
+                  <p class="form-control-static">Старый стиль (&x&r&r&g&g&b&b)</p>
                 </div>
               </div>
               <div class="row">
@@ -100,37 +112,45 @@
                   <input type="checkbox" id="strike" onclick="updateOutputText(event);"/>
                   <label for="strike">Зачеркивание</label>
                 </div>
+                <!-- Удален режим титулов (всегда включен) -->
               </div>
             </div>
           </div>
         </div>
-		<br>
-		<hr></hr>
-		<div class="row">
-			  <h1>Информация</h1>
-			  <p>Добро пожаловать на RGB NullX.su! Мы рады представить уникальную возможность для каждого игрока выделиться среди остальных и подчеркнуть свою индивидуальность - титулы! Что же такое титулы на нашем сервере?</p>
+        <br>
+        <hr></hr>
+        <div class="row">
+          <h1>Информация</h1>
+          <p>Добро пожаловать на RGB NullX.su! Мы рады представить уникальную возможность для каждого игрока выделиться среди остальных и подчеркнуть свою индивидуальность - титулы! Что же такое титулы на нашем сервере?</p>
 
-			  <h2>Что такое титулы?</h2>
-			  <p><b>Титул</b> - это игровой суффикс, который появляется после вашего никнейма в чате и над вашей головой. Он позволяет вам выразить свою уникальность и привлечь внимание других игроков. Выбрав титул, вы сможете отметить свою принадлежность к определенной категории или просто подчеркнуть свои достижения и стиль игры.</p>
+          <h2>Что такое титулы?</h2>
+          <p><b>Титул</b> - это игровой суффикс, который появляется после вашего никнейма в чате и над вашей головой. Он позволяет вам выразить свою уникальность и привлечь внимание других игроков. Выбрав титул, вы сможете отметить свою принадлежность к определенной категории или просто подчеркнуть свои достижения и стиль игры.</p>
 
-			  <h2>Как установить титул?</h2>
-			  <p>Титулы доступны для режимов: <b>Анархия</b>. Вы можете выбрать титул, который наилучшим образом отражает вашу игровую личность и стиль.</p>
+          <h2>Как установить титул?</h2>
+          <p>Титулы доступны для режимов: <b>Анархия</b>. Вы можете выбрать титул, который наилучшим образом отражает вашу игровую личность и стиль.</p>
 
-			  <h2>Ограничение на количество символов</h2>
-			  <p>Пожалуйста, имейте в виду, что титулы имеют ограничение на количество символов - <b>всего 16 символов</b>. Будьте творчивы и убедитесь, что ваш титул отражает вашу индивидуальность и подходит под это ограничение.</p>
-			  
-			  <h2>Разнообразие цветовых решений</h2>
-			  <p>Наши титулы - это не просто статичные слова. Мы даем возможность каждому игроку разнообразить свой титул, добавив к нему индивидуальность и красок. Вы можете сделать свой титул ярким, разноцветным и уникальным. Выберите цвета, которые отражают ваш характер и игровой стиль, и заставьте ваш ник выделяться среди других игроков!</p>
+          <h2>Ограничение на количество символов</h2>
+          <p>Пожалуйста, имейте в виду, что титулы имеют ограничение на количество символов - <b>всего 16 символов</b>. Будьте творчивы и убедитесь, что ваш титул отражает вашу индивидуальность и подходит под это ограничение.</p>
 
-			  <h2>Доступные в магазине сервера</h2>
-			  <p>Получить титул совсем просто! Они доступны в <a href="https://www.nullx.su/" target="_blank">нашем магазине</a>. Это отличная инвестиция в вашу игровую личность, которая также поможет поддерживать и развивать наш сервер.</p>
+          <h2>Разнообразие цветовых решений</h2>
+          <p>Наши титулы - это не просто статичные слова. Мы даем возможность каждому игроку разнообразить свой титул, добавив к нему индивидуальность и красок. Вы можете сделать свой титул ярким, разноцветным и уникальным. Выберите цвета, которые отражают ваш характер и игровой стиль, и заставьте ваш ник выделяться среди других игроков!</p>
 
-			  <h2>Дайте волю вашей фантазии</h2>
-			  <p>На нашем сайте вы можете придумать собственный титул и разнообразить его красками прямо сейчас! Выберите цвета, которые вы любите, и создайте уникальный титул, который станет вашим неповторимым знаком на сервере NullX.su.</p>
-		</div>
+          <h2>Доступные в магазине сервера</h2>
+          <p>Получить титул совсем просто! Они доступны в <a href="https://www.nullx.su/" target="_blank">нашем магазине</a>. Это отличная инвестиция в вашу игровую личность, которая также поможет поддерживать и развивать наш сервер.</p>
+
+          <h2>Дайте волю вашей фантазии</h2>
+          <p>На нашем сайте вы можете придумать собственный титул и разнообразить его красками прямо сейчас! Выберите цвета, которые вы любите, и создайте уникальный титул, который станет вашим неповторимым знаком на сервере NullX.su.</p>
+        </div>
       </div>
     </div>
     <script src="jscolor.js"></script>
     <script src="script.js?31"></script>
-    </body>
+    <script>
+      // Убедитесь, что функция всегда использует нужный формат
+      function updateOutputText(event) {
+        const format = 2; // Зафиксируйте формат на 'Старый стиль'
+        // Ваш код для обновления текста
+      }
+    </script>
+  </body>
 </html>
